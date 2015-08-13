@@ -40,7 +40,7 @@
             ?>
       </p>
         
-        <p> Optellen van de getallen uit <pre><?php var_dump($cijfers1) ?></pre> en <pre><?php var_dump($cijfers2) ?></pre> geeft <pre><?php var_dump($cijfers3) ?></pre>
+        <p> Optellen van de getallen uit <pre> <?php var_dump($cijfers1) ?></pre> en <pre><?php var_dump($cijfers2) ?></pre> geeft <pre><?php var_dump($cijfers3) ?></pre>
         </p>
 
 
