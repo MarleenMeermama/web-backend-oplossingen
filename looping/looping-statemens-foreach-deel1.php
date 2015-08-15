@@ -43,21 +43,15 @@ foreach($gesorteerdeKraktersOmgekeerd as $value)
     <body>
     	<h1>looping statements foreach deel 1</h1>
 
-    	h1>Array van Z naar A</h1>
+    	<h2>Array van Z naar A</h2>
 		<pre><?php var_dump ( $textChars ) ?></pre>
 
-		<h1>Array reversed</h1>
+		<h2>Array reversed</h2>
 		<pre><?php var_dump ( $gesorteerdeKraktersOmgekeerd ) ?></pre>
 
-		 <h1>Array voorkomen van letters</h1>
-		<!-- <?php for ($i=0; $i < count($gesorteerdeKraktersOmgekeerd); $i++) { 
-			echo $tellerArray[$i];
-		} ?>
-		
-		-->
+		<h2>Array voorkomen van letters</h2>
+		<pre><?php var_dump ( $tellerArray ) ?></pre>
 
-
-		<pre><?php echo ( $tellerArray ) ?></pre>
         
     </body>
 </html>
