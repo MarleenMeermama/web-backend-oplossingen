@@ -15,13 +15,14 @@ function drukArrayAf($array){
         else 
             {
                 $containerArray[]    =   'voertuigen[' . $key . '] heeft waarde ' . $value;
+
             }
     }
     return $containerArray;
 }
 
 $resultaat = drukArrayAf($voertuigen);
-var_dump( $resultaat );
+
 
 
 function validateHtmlTag ($html){
@@ -52,11 +53,8 @@ function validateHtmlTag ($html){
         <h1>function basis deel2</h1>
 
         <h2>Array afdrukken</h2>
-        <ul>
-            <?php foreach ( $resultaat as $value ): ?>
-                <li><?= $value ?></li>
-            <?php endforeach ?>
-        </ul>
+       <?php  var_dump($resultaat) ?>
+           
 
 		<h2>Validatie html</h2>
 		<p>De string <code> <?php echo $testString ?> </code> levert <?php echo (validateHtmlTag($testString)?'':'g') ?>een geldige html-code</p>
