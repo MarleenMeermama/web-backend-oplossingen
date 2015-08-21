@@ -1,5 +1,6 @@
 <?php 
 
+//handig bij meerdere classes
 function __autoload($Percent) {
     $filename = "classes/". $Percent .".php";
     include_once($filename);
@@ -9,6 +10,7 @@ $new	=	150;
 $unit	=	100;
 
 $percent = new Percent( $new, $unit );
+// var_dump($pecent->formatNumber(1,2));
 
 ?>
 
