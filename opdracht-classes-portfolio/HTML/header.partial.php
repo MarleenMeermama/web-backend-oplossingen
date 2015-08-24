@@ -5,11 +5,13 @@
 	
 	<meta charset="utf-8">
 	<title>Opdracht classes: portfolio</title>
-    <?php 
-    var_dump($cssLinks);
-    //echo $page-> buildHeader() ?>
-<!-- 	<link rel="stylesheet" href="css/global.css">
-	<link rel="stylesheet" href="css/portfolio.css"> -->
+
+    
+    <?php foreach ($page->getCssLinks() as $value): ?>
+        <link rel="stylesheet" href="<?php echo $value ?>">
+    <?php endforeach ?>
+    
+  
 		
 </head>
 

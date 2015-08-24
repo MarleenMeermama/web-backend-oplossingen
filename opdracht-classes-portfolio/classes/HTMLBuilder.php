@@ -17,8 +17,8 @@ class HTMLBuilder {
 
 	public function buildHeader () {
 		
-		$cssLinks = $this->createCssLinks();
-		var_dump($cssLinks);
+		$page = $this;
+
 		include_once 'HTML/'. $this->header;
 
 	}
@@ -50,34 +50,40 @@ class HTMLBuilder {
 
 		$allCssFilesArray = glob($cssDirName . '\*.css'); //volledige dir\alle_filename.css
 
-		$dumpArray	=	array();
+		$allCssLinks	=	array();
 		foreach ($allCssFilesArray as $file)
 				{
 					$fileInfo	=	pathinfo($file); //returned: dirname, basename, extension (if any), and filename.
 					$fileName	=	$fileInfo['basename'];
-					$dumpArray[] = '<link rel="stylesheet" type="text/css" href="css\\' . $fileName . '">';
+					$volledigeNaam = $dirName."\\" .$fileName;
+					$allCssLinks[] = $volledigeNaam;
+
 				}
-		$cssLinks =  implode('', $dumpArray);
+		return $allCssLinks;
+	}
+
+	public function getCssLinks(){
+		$cssLinks = $this->createCssLinks();
+		var_dump($cssLinks);
 		return $cssLinks;
-
 	}
 
-	public function createJsLinks(){
+	// public function createJsLinks(){
 
-		//dirname = use it to get parent directory of current included file 
-		$dirName = dirname(dirname(__FILE__));
-		$jsDirName = $dirName . '\js';
-		$allJsFilesArray = glob($jsDirName . '\*.js'); //volledige dir\filename
+	// 	//dirname = use it to get parent directory of current included file 
+	// 	$dirName = dirname(dirname(__FILE__));
+	// 	$jsDirName = $dirName . '\js';
+	// 	$allJsFilesArray = glob($jsDirName . '\*.js'); //volledige dir\filename
 
-		$dumpArray	=	array();
-		foreach ($allJsFilesArray as $file)
-				{
-					$fileInfo	=	pathinfo($file); //returned: dirname, basename, extension (if any), and filename.
-					$fileName	=	$fileInfo['basename'];
-					$dumpArray[] = '<script src="js\\' . $fileName . '"></script>';
-				}
-		$jsScripts = implode('', $dumpArray);
-	}
+	// 	$dumpArray	=	array();
+	// 	foreach ($allJsFilesArray as $file)
+	// 			{
+	// 				$fileInfo	=	pathinfo($file); //returned: dirname, basename, extension (if any), and filename.
+	// 				$fileName	=	$fileInfo['basename'];
+	// 				$dumpArray[] = '<script src="js\\' . $fileName . '"></script>';
+	// 			}
+	// 	$jsScripts = implode('', $dumpArray);
+	// }
 }
 
 
