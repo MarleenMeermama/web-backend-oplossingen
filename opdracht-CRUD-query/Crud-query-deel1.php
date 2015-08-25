@@ -73,9 +73,9 @@
 	       			<tr class="<?= ( $key %2 == 0 ) ? 'even' : '' ?>">
 	       				<td ><?php echo ($key + 1) ?></td>
 	       				
-							<?php foreach ($bieren[$key] as $key => $value): ?>
-								<td ><?php echo $value ?></td>
-							<?php endforeach ?>
+						<?php foreach ($bieren[$key] as $key => $value): ?>
+							<td ><?php echo $value ?></td>
+						<?php endforeach ?>
 	       				
 	       			</tr>
        			<?php endforeach ?>

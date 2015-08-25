@@ -1,22 +1,14 @@
 <?php
-
 	$messageContainer	=	'';
 	$geselecteerdeBrouwer = False;
-
 	try
 	{
-
 		$db = new PDO('mysql:host=localhost;dbname=bieren', 'root', ''); // Connectie maken
 		//$messageContainer	=	'Connectie dmv PDO geslaagd.';
-
 		$queryString = 'SELECT brouwernr, brnaam FROM brouwers';
-
 		$statement = $db->prepare($queryString);
-
 		$statement->execute();
-
 		$brouwers = array();
-
 		while ( $row = $statement->fetch(PDO::FETCH_ASSOC) )
 		{
 			$brouwers[]	=	$row;
@@ -33,25 +25,20 @@
 			$queryString = 'SELECT bieren.naam FROM bieren';
 			$statement = $db->prepare($queryString);
 		}	
-
 			$statement->execute();
-
 			$bieren = array();
 			while ( $row = $statement->fetch(PDO::FETCH_ASSOC) )
 			{
 			$bieren[]	=	$row;
 			}
 			//var_dump($bieren);
-
 			
 			$bierenHeader		= array();
 			$bierenHeader[] 	= 'aantal';
 			foreach ($bieren[0] as $key => $value) {
 				$bierenHeader[] 	= $key;
 			}
-
 			//var_dump($bierenHeader);
-
 	}	
 	
 	
@@ -59,8 +46,6 @@
 	{
 		$messageContainer	=	'Er ging iets mis: ' . $e->getMessage();
 	}
-
-
 ?>
 <!doctype html>
 <html>
@@ -85,10 +70,11 @@
        <h1>CRUD query deel 2</h1>
        <p><?php echo $messageContainer ?></p>
        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="GET">
-       		<select name="brouwernr">
+       		<label for="brouwer">Brouwers:</label>
+       		<select name="brouwernr" id="brouwer">
        			<?php foreach ($brouwers as $key => $brouwer): ?>
        				<option value = "<?php echo $brouwer['brouwernr'] ?>" <?= ( $geselecteerdeBrouwer === $brouwer['brouwernr'] ) ? 'selected' : '' ?> > <?= $brouwer['brnaam'] ?></option>
-       		<?php endforeach ?>
+       			<?php endforeach ?>
        		</select>
        		<input type="submit" value="Geef mij alle bieren van deze brouwerij">
 		</form>
