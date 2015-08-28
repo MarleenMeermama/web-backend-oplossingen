@@ -1,0 +1,36 @@
+<?php
+	
+	session_start();
+
+	function __autoload( $className )
+	{
+		include_once( 'classes/' . $className . '.php' );
+	}
+
+	$currentPage	=	basename( $_SERVER[ 'PHP_SELF' ] );
+
+	var_dump( $_POST );
+
+	try 
+	{
+		//$db = new PDO('mysql:host=localhost;dbname=bieren', 'root', '' ); // Connectie maken
+
+		$dbi	=	new Database( 'mysql', 'localhost', 'bieren', 'root', '' );
+
+		$brouwersQuery	=	"SELECT * 
+								FROM brouwers
+								WHERE brouwernr";
+
+		$brouwers = $dbi->query( $brouwersQuery );
+
+	} 
+	catch (Exception $e) 
+	{
+
+		Message::setMessage( $e->getMessage(), 'error' );
+	}
+
+	$message	=	Message::getMessage();
+
+
+?>

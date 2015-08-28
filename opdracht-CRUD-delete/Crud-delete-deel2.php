@@ -87,7 +87,7 @@
         </style>
      </head>
     <body>
-       <h1>CRUD delete deel 2</h1>
+       <h1>Overzicht van de bieren</h1>
        <?php if ( $message ): ?>
 			<div class="modal <?= $message[ "type" ] ?>">
 				<?= $message['text'] ?>
