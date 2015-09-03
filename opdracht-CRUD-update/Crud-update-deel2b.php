@@ -3,6 +3,7 @@
 	var_dump( $_POST );
 
 	session_start();
+	
 	function __autoload( $className )
 	{
 		include_once( 'classes/' . $className . '.php' );
@@ -40,8 +41,7 @@
 								LIMIT 1';
 			$deleteQueryPlaceholder = array( ':brouwernr' => $_POST[ 'delete' ] );
 
-			$container  = $db->query( $deleteQuery, $deleteQueryPlaceholder );
-			var_dump($container);
+			$contianer  = $db->query( $deleteQuery, $deleteQueryPlaceholders );
 
 			$isDeleted = $container['execute'];
 
@@ -90,11 +90,9 @@
 
 			$updateQuery	=	"UPDATE brouwers SET " . $selectSet . "WHERE brouwernr	= ". $_POST['brouwernr' ];
 			
-			$container = $db->query($updateQuery);
-			$updateSuccessful = $container['execute'];
+			$container = db->query($updatQuery);
 
-
-			if ( $updateSuccessful )
+			if ( $container['execute' ])
 			{
 				Message::setMessage('Update op de brouwer ' . $_POST[ 'brnaam' ] . ' succesvol uitgevoerd.', 'succes');
 			}
@@ -109,6 +107,7 @@
 		$queryString = 'SELECT * FROM brouwers';
 		
 		$container = $db->query($queryString);
+		
 		
 		$brouwerHeader = array();
 		$brouwerHeader[] = "#";

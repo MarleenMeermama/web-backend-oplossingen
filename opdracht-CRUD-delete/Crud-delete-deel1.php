@@ -7,7 +7,7 @@
 
 	try
 	{
-		$db = new PDO('mysql:host=localhost;dbname=bieren', 'root', ''); 
+		$db = new PDO('mysql:host=localhost;dbname=bieren', 'root', 'root'); 
 
 		if ( isset($_POST['delete'])){
 			
