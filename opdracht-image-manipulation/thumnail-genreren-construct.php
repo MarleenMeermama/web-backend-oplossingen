@@ -8,8 +8,8 @@ function __autoload( $className )
 	}
 
 
-var_dump( $_FILES );
-
+// var_dump( $_FILES );
+$resized = FALSE;
 
 if ( isset( $_POST[ 'submit' ] ) ){
 
