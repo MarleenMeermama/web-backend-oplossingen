@@ -1,0 +1,9 @@
+RewriteEngine On 
+# RewriteRule ^redirect.php$ original.php
+
+#RewriteRule ^rasmus$ original.php?user=rasmus
+#RewriteRule ^steve$ original.php?user=steve
+
+#RewriteRule ^([^/\.]+)/?$ original.php?user=$1
+
+RewriteRule ^([^/\.]+)/([^/\.]+)/?$ original.php?orde=$1&user=$2
