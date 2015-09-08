@@ -1,0 +1,9 @@
+RewriteEngine On
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+# Het deel na de root worden meegegeven als get-variabele aan index.php
+RewriteRule ^(.*)/?$ index.php?hook=$1 [L]
