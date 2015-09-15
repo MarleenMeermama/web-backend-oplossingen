@@ -5,8 +5,8 @@
 
 	function __autoload( $classname )
 	{
-		var_dump($classname);
-		require_once( 'classes\\'.$classname . '.php' );
+		// var_dump($classname);
+		require_once( 'classes/'.$classname . '.php' );
 	}
 
 

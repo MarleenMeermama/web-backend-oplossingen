@@ -1,0 +1,3 @@
+<?php 
+echo "labo php"
+ ?>
